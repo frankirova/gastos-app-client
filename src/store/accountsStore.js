@@ -3,7 +3,7 @@
   export const useAccounts = create((set) => ({
     accounts: [],
     getAccounts: async () => {
-      const response = await fetch("http://localhost:3000/accounts");
+      const response = await fetch("https://gastos-app-server.onrender.com/accounts");
       const accounts = await response.json();
       set((state) => ({
         ...state,
@@ -11,7 +11,7 @@
       }));
     },
     addAccount: async (account) => {
-      await fetch("http://localhost:3000/addAccount", {
+      await fetch("https://gastos-app-server.onrender.com/addAccount", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -20,13 +20,13 @@
       });
     },
     deleteAccount: async (id) => {
-      await fetch(`http://localhost:3000/account/${id}`, {
+      await fetch(`https://gastos-app-server.onrender.com/account/${id}`, {
         method: "DELETE",
         body: JSON.stringify(id),
       });
     },
     editAccount: async (updatedAccount, id) => {
-      await fetch(`http://localhost:3000/account/${id}`, {
+      await fetch(`https://gastos-app-server.onrender.com/account/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
