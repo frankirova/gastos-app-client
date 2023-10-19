@@ -3,7 +3,7 @@ import { create } from "zustand";
 export const useMovements = create((set) => ({
   movements: [],
   getMovements: async () => {
-    const response = await fetch("http://localhost:3000/movements");
+    const response = await fetch("https://gastos-app-server.onrender.com/movements");
     const movements = await response.json();
     set((state) => ({
       ...state,
@@ -11,7 +11,7 @@ export const useMovements = create((set) => ({
     }));
   },
   addMovement: async (movement) => {
-    await fetch("http://localhost:3000/addMovement", {
+    await fetch("https://gastos-app-server.onrender.com/addMovement", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -21,7 +21,7 @@ export const useMovements = create((set) => ({
   },
   totals: [],
   getTotals: async () => {
-    const response = await fetch("http://localhost:3000/totals");
+    const response = await fetch("https://gastos-app-server.onrender.com/totals");
     const totals = await response.json();
     set((state) => ({
       ...state,
@@ -30,7 +30,7 @@ export const useMovements = create((set) => ({
   },
   editMovement: async (updatedMovement, id) => {
     console.log(updatedMovement)
-    await fetch(`http://localhost:3000/movement/${id}`, {
+    await fetch(`https://gastos-app-server.onrender.com/movement/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -39,7 +39,7 @@ export const useMovements = create((set) => ({
     });
   },
   deleteMovement: async (id) => {
-    await fetch(`http://localhost:3000/movement/${id}`, {
+    await fetch(`https://gastos-app-server.onrender.com/movement/${id}`, {
       method: "DELETE",
       body: JSON.stringify(id),
     });
