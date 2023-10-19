@@ -3,7 +3,7 @@ import { create } from "zustand";
 export const useCategories = create((set) => ({
   categories: [],
   getCategories: async () => {
-    const response = await fetch("http://localhost:3000/myCategories");
+    const response = await fetch("https://gastos-app-server.onrender.com/myCategories");
     const categories = await response.json();
     set((state) => ({
       ...state,
@@ -11,7 +11,7 @@ export const useCategories = create((set) => ({
     }));
   },
   addCategory: async (category) => {
-    await fetch("http://localhost:3000/addCategories", {
+    await fetch("https://gastos-app-server.onrender.com/addCategories", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -20,7 +20,7 @@ export const useCategories = create((set) => ({
     });
   },
   deleteCategory: async (id) => {
-    await fetch(`http://localhost:3000/category/${id}`, {
+    await fetch(`https://gastos-app-server.onrender.com/category/${id}`, {
       method: "DELETE",
       body: JSON.stringify(id),
     });
