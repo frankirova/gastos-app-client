@@ -1,4 +1,4 @@
-import { DeleteModal } from "./deleteModal";
+import { DeleteModal } from "./DeleteModal";
 import { ModalEditMovement } from "./ModalEditMovement";
 import { useEffect } from "react";
 import { useMovements } from "../store/movementsStore";
