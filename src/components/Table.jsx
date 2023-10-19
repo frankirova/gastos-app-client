@@ -9,7 +9,7 @@ import {
   Button,
 } from "@chakra-ui/react";
 import { ModalEditCategory } from "./ModalEditCategory";
-import { DeleteModal } from "./deleteModal";
+import { DeleteModal } from "./DeleteModal";
 
 export const SimpleTable = ({ categories }) => {
   const bgColorGreen = useColorModeValue("green.100", "green.700");
