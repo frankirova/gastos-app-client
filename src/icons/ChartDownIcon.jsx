@@ -1,6 +1,6 @@
 import { Box } from "@chakra-ui/react";
 
-export const ChartUpIcon = () => {
+export const ChartDownIcon = () => {
   return (
     <Box padding={3} background={"#1f2b3e"} borderRadius={"full"}>
       <Box w={"24px"} color="white">
@@ -15,7 +15,7 @@ export const ChartUpIcon = () => {
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
-            d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"
+            d="M2.25 6L9 12.75l4.286-4.286a11.948 11.948 0 014.306 6.43l.776 2.898m0 0l3.182-5.511m-3.182 5.51l-5.511-3.181"
           />
         </svg>
       </Box>

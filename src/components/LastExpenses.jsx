@@ -29,7 +29,7 @@ export const LastExpenses = () => {
         .sort(compareByDate)
         .slice(0, 3)
         .map((movement) => (
-          <Card key={movement._id}>
+          <Card key={movement._id} bg={'#4d648d'} color={'white'}>
             <CardHeader>
               <Heading size="md"> {movement.category}</Heading>
             </CardHeader>

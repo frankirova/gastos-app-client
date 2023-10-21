@@ -30,7 +30,7 @@ export const MovementsTable = () => {
 
   return (
     <Box>
-      <Table variant="simple" minWidth='full'>
+      <Table variant="simple" minWidth='full' color={"white"}>
         <Thead bg="#3a5270">
           <Tr>
             <Th textColor="white">Fecha</Th>
@@ -48,7 +48,7 @@ export const MovementsTable = () => {
               <Td>{movement.date}</Td>
               <Td>{movement.category}</Td>
               <Td>{movement.group}</Td>
-              <Td bg={getBgColor(movement.group)}>${movement.amount}</Td>
+              <Td color={"black"} bg={getBgColor(movement.group)}>${movement.amount}</Td>
               <Td>{movement.description}</Td>
               <Td>
                 <ModalEditMovement id={movement._id} />

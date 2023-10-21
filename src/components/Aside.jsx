@@ -7,7 +7,7 @@ export const Aside = () => {
     <aside>
       <Flex
         align="center"
-        bg="gray.300"
+        bg="#1f2b3e"
         direction="column"
         left="0"
         minHeight="100vh"
@@ -16,11 +16,11 @@ export const Aside = () => {
         // width="18rem"
         minWidth={'20vw'}
       >
-        <Heading color="orange">
+        <Heading color="#acc2ef">
           <Link to="/">Franki</Link>
         </Heading>
         <Flex
-          color="black"
+          color="white"
           p={4}
           direction="column"
           alignItems="flex-start"
@@ -31,7 +31,7 @@ export const Aside = () => {
           <Button
             as={Link}
             bg="primary"
-            color={"black"}
+            color={"white"}
             fontSize="1.3rem"
             p={4}
             to="/transactions"
@@ -42,7 +42,7 @@ export const Aside = () => {
           <Button
             as={Link}
             bg="primary"
-            color={"black"}
+            color={"white"}
             fontSize="1.3rem"
             p={4}
             to="/categories"
@@ -53,7 +53,7 @@ export const Aside = () => {
           <Button
             as={Link}
             bg="primary"
-            color={"black"}
+            color={"white"}
             fontSize="1.3rem"
             p={4}
             to="/reports"
@@ -64,7 +64,7 @@ export const Aside = () => {
           <Button
             as={Link}
             bg="primary"
-            color={"black"}
+            color={"white"}
             fontSize="1.3rem"
             p={4}
             to="/accounts"

@@ -4,6 +4,7 @@ import { useMovements } from "../store/movementsStore";
 
 import { Flex, Heading, HStack, Stack, Text, VStack } from "@chakra-ui/react";
 import { ChartUpIcon } from "../icons/ChartUpIcon";
+import { ChartDownIcon } from "../icons/ChartDownIcon";
 
 export const HeaderApp = () => {
   const { getTotals, totals } = useMovements();
@@ -15,10 +16,10 @@ export const HeaderApp = () => {
   return (
     <Flex direction={"column"} gap={4}>
       <Stack
-        backgroundColor="#3a5270"
+        backgroundColor={"#4d648d"}
         borderRadius={"10px"}
         boxShadow="lg"
-        color="orange"
+        color={"#acc2ef"}
         minHeight={"10rem"}
         minWidth="60vw"
         p={4}
@@ -31,12 +32,12 @@ export const HeaderApp = () => {
 
       <Flex minWidth="60vw" justifyContent={"space-between"} gap={4}>
         <HStack
+          backgroundColor={"#4d648d"}
+          color="#acc2ef"
           alignItems={"flex-start"}
           justifyContent={"space-between"}
-          backgroundColor={"orange"}
           borderRadius={"10px"}
           boxShadow="lg"
-          color="#3a5270"
           minHeight={"10rem"}
           minWidth="30vw"
           p={4}
@@ -50,28 +51,16 @@ export const HeaderApp = () => {
             </VStack>
             <ChartUpIcon />
           </HStack>
-          <VStack>
-            <Heading size="md">Gastos</Heading>
-            <Text py="2" fontSize={"xx-large"}>
-              ${totals.totalExpense}
-            </Text>
-          </VStack>
+          <HStack>
+            <VStack>
+              <Heading size="md">Gastos</Heading>
+              <Text py="2" fontSize={"xx-large"}>
+                ${totals.totalExpense}
+              </Text>
+            </VStack>
+            <ChartDownIcon />
+          </HStack>
         </HStack>
-        {/* 
-        <Stack
-          backgroundColor="orange"
-          borderRadius={"10px"}
-          boxShadow="lg"
-          color="#3a5270"
-          minHeight={"10rem"}
-          minWidth="30vw"
-          p={4}
-        >
-          <Heading size="md">Gastos</Heading>
-          <Text py="2" fontSize={"xx-large"}>
-            ${totals.totalExpense}
-          </Text>
-        </Stack> */}
       </Flex>
       <LastExpenses />
     </Flex>

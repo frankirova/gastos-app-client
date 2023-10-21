@@ -8,21 +8,21 @@ export const Layout = () => {
     <Grid
       minH={"full"}
       templateRows="repeat(2, 1fr)"
-      //   templateColumns="repeat(2, 1fr)"
       templateColumns="auto 1fr"
-      gap='1.5rem'
+      background={'#1f2b3e'}
+      // gap='1.5rem'
     >
       <GridItem maxWidth={"20vw"} rowSpan={2} colSpan={1}>
         <Box>
           <Aside />
         </Box>
       </GridItem>
-      <GridItem w={'76vw'} rowSpan={1} colSpan={1}>
+      <GridItem w={'80vw'} rowSpan={1} colSpan={1}>
         <Box>
           <HeaderApp />
         </Box>
       </GridItem>
-      <GridItem w={'76vw'} rowSpan={1} colSpan={1}>
+      <GridItem w={'80vw'} rowSpan={1} colSpan={1}>
         <Box>
           <MovementsTable />
         </Box>

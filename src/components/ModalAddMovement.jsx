@@ -79,7 +79,7 @@ export const ModalAddMovement = () => {
   // if (!fieldsMovements[0]) return <p>Loading</p>;
   return (
     <>
-      <Button onClick={onOpen} colorScheme="orange">
+      <Button onClick={onOpen}>
         Add Movement
       </Button>
       <Modal
@@ -162,7 +162,7 @@ export const ModalAddMovement = () => {
 
           <ModalFooter>
             <Button
-              colorScheme="orange"
+              bg="#4d648d"
               mr={3}
               onClick={() => handleActionAndCloseModal(formState)}
             >

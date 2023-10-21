@@ -7,11 +7,11 @@ export const ButtonAdd = () => {
   return (
     <Menu>
       <MenuButton
-        _active={{ bg: "orange" }}
+        _active={{ bg: "#4d648d" }}
         _focus={{ outline: "none" }}
-        _hover={{ bg: "orange" }}
+        _hover={{ bg: "#4d648d" }}
         as={Button}
-        bg="orange"
+        bg="#4d648d"
         borderRadius="full"
         bottom="4rem"
         color="white"
@@ -26,7 +26,9 @@ export const ButtonAdd = () => {
       </MenuButton>
       <MenuList bg="white" color="black">
         <ModalAddMovement />
-        <MenuItem>Transactions</MenuItem>
+        <MenuItem>
+          <Button>Transactions</Button>
+        </MenuItem>
       </MenuList>
     </Menu>
   );
