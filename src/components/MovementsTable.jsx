@@ -30,7 +30,7 @@ export const MovementsTable = () => {
 
   return (
     <Box>
-      <Table variant="simple">
+      <Table variant="simple" minWidth='full'>
         <Thead bg="#3a5270">
           <Tr>
             <Th textColor="white">Fecha</Th>

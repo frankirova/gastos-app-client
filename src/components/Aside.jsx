@@ -13,7 +13,8 @@ export const Aside = () => {
         minHeight="100vh"
         position="sticky"
         top="0"
-        width="18rem"
+        // width="18rem"
+        minWidth={'20vw'}
       >
         <Heading color="orange">
           <Link to="/">Franki</Link>

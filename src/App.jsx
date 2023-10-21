@@ -12,7 +12,7 @@ function App() {
     <>
       <BrowserRouter>
         <Flex>
-          <Aside />
+          {/* <Aside /> */}
           <Routes>
             <Route path="/" element={<Home />}></Route>
             <Route path="/transactions" element={<TransactionsPage />}></Route>

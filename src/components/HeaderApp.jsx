@@ -2,7 +2,8 @@ import { LastExpenses } from "./LastExpenses";
 import { useEffect } from "react";
 import { useMovements } from "../store/movementsStore";
 
-import { Flex, Heading, Stack, Text } from "@chakra-ui/react";
+import { Flex, Heading, HStack, Stack, Text, VStack } from "@chakra-ui/react";
+import { ChartUpIcon } from "../icons/ChartUpIcon";
 
 export const HeaderApp = () => {
   const { getTotals, totals } = useMovements();
@@ -29,7 +30,9 @@ export const HeaderApp = () => {
       </Stack>
 
       <Flex minWidth="60vw" justifyContent={"space-between"} gap={4}>
-        <Stack
+        <HStack
+          alignItems={"flex-start"}
+          justifyContent={"space-between"}
           backgroundColor={"orange"}
           borderRadius={"10px"}
           boxShadow="lg"
@@ -38,12 +41,23 @@ export const HeaderApp = () => {
           minWidth="30vw"
           p={4}
         >
-          <Heading size="md">Ingresos</Heading>
-          <Text py="2" fontSize={"xx-large"}>
-            ${totals.totalIncome}
-          </Text>
-        </Stack>
-
+          <HStack>
+            <VStack>
+              <Heading size="md">Ingresos</Heading>
+              <Text py="2" fontSize={"xx-large"}>
+                ${totals.totalIncome}
+              </Text>
+            </VStack>
+            <ChartUpIcon />
+          </HStack>
+          <VStack>
+            <Heading size="md">Gastos</Heading>
+            <Text py="2" fontSize={"xx-large"}>
+              ${totals.totalExpense}
+            </Text>
+          </VStack>
+        </HStack>
+        {/* 
         <Stack
           backgroundColor="orange"
           borderRadius={"10px"}
@@ -57,7 +71,7 @@ export const HeaderApp = () => {
           <Text py="2" fontSize={"xx-large"}>
             ${totals.totalExpense}
           </Text>
-        </Stack>
+        </Stack> */}
       </Flex>
       <LastExpenses />
     </Flex>
