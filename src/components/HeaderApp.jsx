@@ -21,7 +21,7 @@ export const HeaderApp = () => {
         boxShadow="lg"
         color={"#acc2ef"}
         minHeight={"10rem"}
-        minWidth="60vw"
+        maxWidth="30vw"
         p={4}
       >
         <Heading size="md">Saldo Actual</Heading>
@@ -30,7 +30,7 @@ export const HeaderApp = () => {
         </Text>
       </Stack>
 
-      <Flex minWidth="60vw" justifyContent={"space-between"} gap={4}>
+      <Flex minWidth="30vw" justifyContent={"space-between"} gap={4}>
         <HStack
           backgroundColor={"#4d648d"}
           color="#acc2ef"
