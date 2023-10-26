@@ -1,6 +1,8 @@
   import { create } from "zustand";
 
   export const useAccounts = create((set) => ({
+    selectedAccount: 'Ahorro',
+    updateSelectedAccount: (account) => set({ selectedAccount: account }),
     accounts: [],
     getAccounts: async () => {
       const response = await fetch("https://gastos-app-server.onrender.com/accounts");
