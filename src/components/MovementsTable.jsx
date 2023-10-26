@@ -2,6 +2,7 @@ import { DeleteModal } from "./DeleteModal";
 import { ModalEditMovement } from "./ModalEditMovement";
 import { useEffect } from "react";
 import { useMovements } from "../store/movementsStore";
+import { useAccounts } from "../store/accountsStore";
 
 import {
   Box,
@@ -17,12 +18,13 @@ import {
 
 export const MovementsTable = () => {
   const { movements, getMovements } = useMovements();
+  const { selectedAccount } = useAccounts();
   const bgColorGreen = useColorModeValue("green.100", "green.700");
   const bgColorRed = useColorModeValue("red.100", "red.700");
 
   useEffect(() => {
-    getMovements();
-  }, []);
+    getMovements(selectedAccount._id);
+  }, [selectedAccount]);
 
   const getBgColor = (group) => {
     return group === "income" ? bgColorGreen : bgColorRed;
