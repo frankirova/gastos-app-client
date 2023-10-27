@@ -5,13 +5,15 @@ import { useMovements } from "../store/movementsStore";
 import { Flex, Heading, HStack, Stack, Text, VStack } from "@chakra-ui/react";
 import { ChartUpIcon } from "../icons/ChartUpIcon";
 import { ChartDownIcon } from "../icons/ChartDownIcon";
+import { useAccounts } from "../store/accountsStore";
 
 export const HeaderApp = () => {
   const { getTotals, totals } = useMovements();
+  const { selectedAccount } = useAccounts();
 
   useEffect(() => {
-    getTotals();
-  }, []);
+    getTotals(selectedAccount._id);
+  }, [selectedAccount]);
 
   return (
     <Flex direction={"column"} gap={4}>

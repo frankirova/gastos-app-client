@@ -45,9 +45,9 @@ export const useMovements = create((set) => ({
     }
   },
   totals: [],
-  getTotals: async () => {
+  getTotals: async (id) => {
     const response = await fetch(
-      "https://gastos-app-server.onrender.com/totals"
+      `https://gastos-app-server.onrender.com/totals/${id}`
     );
     const totals = await response.json();
     set((state) => ({
