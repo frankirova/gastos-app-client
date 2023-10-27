@@ -3,6 +3,12 @@ import { Link } from "react-router-dom";
 import { Button, Flex, Heading } from "@chakra-ui/react";
 
 export const Aside = () => {
+  const { getAccounts, accounts, selectedAccount, updateSelectedAccount } = useAccounts();
+
+  useEffect(() => {
+    getAccounts();
+  }, []);
+
   return (
     <aside>
       <Flex
@@ -16,9 +22,24 @@ export const Aside = () => {
         // width="18rem"
         minWidth={'20vw'}
       >
-        <Heading color="#acc2ef">
-          <Link to="/">Franki</Link>
-        </Heading>
+              <Flex direction={"column"} gap={4}>
+          <Heading color="#acc2ef">
+            <Link to="/">Franki</Link>
+          </Heading>
+          <Image borderRadius={"100%"} src="https://placehold.co/48x48" />
+          <Menu>
+            <MenuButton>
+              <Tag variant={"solid"}>{selectedAccount.name}</Tag>
+            </MenuButton>
+            <MenuList>
+              {accounts.map((account) => (
+                <MenuItem onClick={() => updateSelectedAccount(account)}>
+                  {account.name}
+                </MenuItem>
+              ))}
+            </MenuList>
+          </Menu>
+        </Flex>
         <Flex
           color="white"
           p={4}
