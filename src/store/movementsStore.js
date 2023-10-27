@@ -3,10 +3,10 @@ import { create } from "zustand";
 export const useMovements = create((set) => ({
   movements: [],
   getMovements: async (id) => {
-   // const response = await fetch(
-     // "https://gastos-app-server.onrender.com/movements"
-    //);
-        const response = await fetch(`https://gastos-app-server.onrender.com/movement/${id}`
+    const response = await fetch(
+      `https://gastos-app-server.onrender.com/movements${id}`
+    );
+
     const movements = await response.json();
     set((state) => ({
       ...state,
