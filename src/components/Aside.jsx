@@ -1,6 +1,16 @@
 import { Link } from "react-router-dom";
 
-import { Button, Flex, Heading } from "@chakra-ui/react";
+import {
+  Button,
+  Flex,
+  Heading,
+  Image,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuList,
+  Tag,
+} from "@chakra-ui/react";
 
 export const Aside = () => {
   const { getAccounts, accounts, selectedAccount, updateSelectedAccount } = useAccounts();
