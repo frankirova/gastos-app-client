@@ -4,7 +4,7 @@ export const useMovements = create((set) => ({
   movements: [],
   getMovements: async (id) => {
     const response = await fetch(
-      `https://gastos-app-server.onrender.com/movements${id}`
+      `https://gastos-app-server.onrender.com/movements/${id}`
     );
 
     const movements = await response.json();
