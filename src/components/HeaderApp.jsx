@@ -10,11 +10,11 @@ import { useAccounts } from "../store/accountsStore";
 export const HeaderApp = () => {
   const { getTotals, totals } = useMovements();
   const { selectedAccount } = useAccounts();
-
+  console.log(selectedAccount)
   useEffect(() => {
     getTotals(selectedAccount._id);
   }, [selectedAccount]);
-
+console.log(totals)
   return (
     <Flex direction={"column"} gap={4}>
       <Stack

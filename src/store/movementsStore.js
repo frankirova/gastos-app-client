@@ -27,7 +27,7 @@ export const useMovements = create((set) => ({
         }
       );
       const totals_response = await fetch(
-        "https://gastos-app-server.onrender.com/totals"
+        `https://gastos-app-server.onrender.com/totals`
       );
       const totals = await totals_response.json();
       if (response.ok) {

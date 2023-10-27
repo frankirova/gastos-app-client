@@ -3,6 +3,7 @@ import {
   FormControl,
   FormLabel,
   Input,
+  Image,
   Modal,
   ModalBody,
   ModalCloseButton,
@@ -21,6 +22,7 @@ import { useCategories } from "../store/categoryStore";
 import { useAccounts } from "../store/accountsStore";
 
 export const ModalAddMovement = () => {
+  const [cryptos, setCryptos] = useState([]);
   const [selectedGroup, setSelectedGroup] = useState("");
   const { categories, getCategories } = useCategories();
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -47,6 +49,38 @@ export const ModalAddMovement = () => {
     getCategories();
   }, []);
 
+  // useEffect(() => {
+  //   fetch(
+  //     "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100"
+  //   )
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       setCryptos(data);
+  //       console.log(data);
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error fetching data:", error);
+  //     });
+  // }, []);
+
+  useEffect(() => {
+    const apiKey = "4232ef31-36b3-4038-9cfe-9bf633fbe1f5";
+
+    fetch("https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/listings/latest", {
+      headers: {
+        "X-CMC_PRO_API_KEY": apiKey,
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setCryptos(data);
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
+
   const currentDate = new Date();
   const day = currentDate.getDate();
   const month = currentDate.getMonth() + 1;
@@ -60,8 +94,6 @@ export const ModalAddMovement = () => {
     description: "",
     group: "",
   });
-
-  console.log(formState);
 
   const handleGroupChange = (e) => {
     const selectedGroup = e.target.value;
@@ -79,9 +111,7 @@ export const ModalAddMovement = () => {
   // if (!fieldsMovements[0]) return <p>Loading</p>;
   return (
     <>
-      <Button onClick={onOpen}>
-        Add Movement
-      </Button>
+      <Button onClick={onOpen}>Add Movement</Button>
       <Modal
         finalFocusRef={finalRef}
         initialFocusRef={initialRef}
@@ -102,6 +132,28 @@ export const ModalAddMovement = () => {
               >
                 <option value="expense">Gasto</option>
                 <option value="income">Ingreso</option>
+              </Select>
+            </FormControl>
+            <FormControl>
+              <FormLabel>Currency</FormLabel>
+              {/* <Input
+                name="currency"
+                onChange={handleChange}
+                onClose={onClose}
+                placeholder="Moneda"
+                ref={initialRef}
+              /> */}
+              <Select
+                onChange={handleChange}
+                placeholder="Selecciona una moneda"
+                name="account"
+              >
+                {cryptos.map((account) => (
+                  <option key={account.id} value={account.id}>
+                    <p>{account.id}</p>
+                    <Image w={"24px"} src={account.image} />
+                  </option>
+                ))}
               </Select>
             </FormControl>
             <FormControl>
