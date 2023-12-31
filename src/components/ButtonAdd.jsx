@@ -26,9 +26,9 @@ export const ButtonAdd = () => {
       </MenuButton>
       <MenuList bg="white" color="black">
         <ModalAddMovement />
-        <MenuItem>
+        {/* <MenuItem>
           <Button>Transactions</Button>
-        </MenuItem>
+        </MenuItem> */}
       </MenuList>
     </Menu>
   );

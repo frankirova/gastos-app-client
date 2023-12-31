@@ -49,28 +49,10 @@ export const ModalAddMovement = () => {
     getCategories();
   }, []);
 
-  // useEffect(() => {
-  //   fetch(
-  //     "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100"
-  //   )
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       setCryptos(data);
-  //       console.log(data);
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error fetching data:", error);
-  //     });
-  // }, []);
-
   useEffect(() => {
-    const apiKey = "4232ef31-36b3-4038-9cfe-9bf633fbe1f5";
-
-    fetch("https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/listings/latest", {
-      headers: {
-        "X-CMC_PRO_API_KEY": apiKey,
-      },
-    })
+    fetch(
+      "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100"
+    )
       .then((response) => response.json())
       .then((data) => {
         setCryptos(data);
@@ -80,6 +62,24 @@ export const ModalAddMovement = () => {
         console.error("Error fetching data:", error);
       });
   }, []);
+
+  // useEffect(() => {
+  //   const apiKey = "4232ef31-36b3-4038-9cfe-9bf633fbe1f5";
+
+  //   fetch("https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/listings/latest", {
+  //     headers: {
+  //       "X-CMC_PRO_API_KEY": apiKey,
+  //     },
+  //   })
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       setCryptos(data);
+  //       console.log(data);
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error fetching data:", error);
+  //     });
+  // }, []);
 
   const currentDate = new Date();
   const day = currentDate.getDate();
@@ -106,6 +106,7 @@ export const ModalAddMovement = () => {
 
   const handleActionAndCloseModal = (category) => {
     addMovement(category);
+    console.log(category)
     onClose();
   };
   // if (!fieldsMovements[0]) return <p>Loading</p>;

@@ -1,7 +1,7 @@
   import { create } from "zustand";
 
   export const useAccounts = create((set) => ({
-    selectedAccount: { name: "Ahorro" },
+    selectedAccount: { name: "PESOS" },
     updateSelectedAccount: (account) => set({ selectedAccount: account }),
     accounts: [],
     getAccounts: async () => {

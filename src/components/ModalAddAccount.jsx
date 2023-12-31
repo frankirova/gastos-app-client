@@ -1,7 +1,4 @@
-import { useAccounts } from "../store/accountsStore";
-import { useForm } from "../hooks/useForm";
-import React from "react";
-
+import React, { useState } from "react";
 import {
     Button,
     Flex,
@@ -15,19 +12,24 @@ import {
     ModalFooter,
     ModalHeader,
     ModalOverlay,
+    Select,
     useDisclosure,
 } from "@chakra-ui/react";
+import { useForm } from "../hooks/useForm";
+import { getCryptos } from "../helpers/getCryptos";
 
-export const ModalEditAccount = ({ id }) => {
+export const ModalAddAccount = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
-    const { editAccount } = useAccounts();
+    const [cryptos, setCryptos] = useState([]);
 
     const { formState, handleChange } = useForm();
+
     const initialRef = React.useRef(null);
     const finalRef = React.useRef(null);
 
-    const handleActionAndCloseModal = (account) => {
-        editAccount(account, id);
+    const handleActionAndCloseModal = () => {
+        const response = getCryptos();
+        setCryptos(response);
         onClose();
     };
     return (
@@ -37,7 +39,7 @@ export const ModalEditAccount = ({ id }) => {
                 backgroundColor={"#4d648d"}
                 color={"#acc2ef"}
             >
-                Edit
+                Add Account
             </Button>
             <Modal
                 finalFocusRef={finalRef}
@@ -47,31 +49,32 @@ export const ModalEditAccount = ({ id }) => {
             >
                 <ModalOverlay />
                 <ModalContent>
-                    <ModalHeader>Edit Account</ModalHeader>
+                    <ModalHeader>Add Account</ModalHeader>
                     <ModalCloseButton />
                     <ModalBody pb={6}>
                         <FormControl>
                             <FormLabel>Name</FormLabel>
                             <Input
-                                name="name"
+                                name="account-name"
                                 onChange={handleChange}
                                 onClose={onClose}
-                                placeholder="name"
+                                placeholder="nombre de la cuenta"
                                 ref={initialRef}
                             />
                         </FormControl>
-                        <FormLabel>Balance</FormLabel>
-                        <Input
-                            name="balance"
+                        <FormLabel>Currency</FormLabel>
+                        <Select
+                            name="currency"
                             onChange={handleChange}
-                            placeholder="Seleciona un grupo"
-                        />
-                         <FormLabel>Tarjetas</FormLabel>
-                        <Input
-                            name="cards"
-                            onChange={handleChange}
-                            placeholder="Selecciona una tarjeta"
-                        />
+                            placeholder="Seleciona una moneda"
+                        >
+                            {cryptos.map((account) => (
+                                <option key={account.id} value={account.id}>
+                                    <p>{account.id}</p>
+                                    <Image w={"24px"} src={account.image} />
+                                </option>
+                            ))}
+                        </Select>
                     </ModalBody>
 
                     <ModalFooter>

@@ -10,6 +10,7 @@ export const Layout = () => {
       templateRows="repeat(2, 1fr)"
       templateColumns="auto 1fr"
       background={'#1f2b3e'}
+      padding={'2rem'}
       // gap='1.5rem'
     >
       <GridItem maxWidth={"20vw"} rowSpan={2} colSpan={1}>
